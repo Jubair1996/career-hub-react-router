@@ -5,8 +5,12 @@ import Footer from "../pages/Footer/Footer";
 const MainLayout = () => {
     return (
         <div>
+            <div className="max-w-6xl mx-auto">
             <Navbar></Navbar>
+            <div className="min-h-screen">
             <Outlet></Outlet>
+            </div>
+            </div>
             <Footer></Footer>
         </div>
     );
