@@ -1,21 +1,18 @@
 import { AiOutlineDollar, AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { BiLocationPlus } from "react-icons/bi";
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplications } from "../../utilities/localstorage";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
   const idInt = parseInt(id);
   const job = jobs.find((job) => job.id === idInt);
-  // console.log(job)
-
-  //   const {
-  //     job_description,
-  //     job_responsibility,
-  //     educational_requirements,
-  //     experiences,
-  //     salary,
-  //     job_title,contact_information
-  //   } = job;
+const handleApply =() =>{
+    saveJobApplications(idInt)
+    toast('Applyed Job Successfully')
+}
   return (
     <div>
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 p-4 my-8">
@@ -65,11 +62,12 @@ const JobDetails = () => {
               <span className=" font-semibold">Address:</span> {job.contact_information.address}
             </p>
           </div>
-          <button className="px-4 py-2 w-full rounded text-xl text-white font-medium bg-[#7E90FE]">
+          <button onClick={handleApply}  className="px-4 py-2 w-full rounded text-xl text-white font-medium bg-[#7E90FE]">
             Apply Now
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
