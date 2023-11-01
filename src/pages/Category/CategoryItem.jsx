@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 const CategoryItem = ({categorys}) => {
     const {logo, availability, category_name} = categorys;
     return (
@@ -11,5 +11,7 @@ const CategoryItem = ({categorys}) => {
         </div>
     );
 };
-
+CategoryItem.propTypes = {
+    categorys: PropTypes.object
+  };
 export default CategoryItem;

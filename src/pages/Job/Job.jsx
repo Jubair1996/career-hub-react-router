@@ -1,5 +1,6 @@
 import { BiLocationPlus } from "react-icons/bi";
 import { AiOutlineDollar } from "react-icons/ai";
+import PropTypes from 'prop-types';
 const Job = ({job}) => {
     const {logo,job_title,company_name,remote_or_onsite,job_type,location,salary} = job;
     return (
@@ -23,5 +24,7 @@ const Job = ({job}) => {
         </div>
     );
 };
-
+Job.propTypes = {
+    job: PropTypes.object
+  };
 export default Job;
