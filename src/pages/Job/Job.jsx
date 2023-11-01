@@ -1,8 +1,9 @@
 import { BiLocationPlus } from "react-icons/bi";
 import { AiOutlineDollar } from "react-icons/ai";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 const Job = ({job}) => {
-    const {logo,job_title,company_name,remote_or_onsite,job_type,location,salary} = job;
+    const {id,logo,job_title,company_name,remote_or_onsite,job_type,location,salary} = job;
     return (
         <div className="border p-4 rounded space-y-3">
             <img src={logo} alt="" />
@@ -20,7 +21,9 @@ const Job = ({job}) => {
                 <p className="flex gap-1 items-center"> <BiLocationPlus></BiLocationPlus> {location}</p>
                 <p className="flex gap-1 items-center"> <AiOutlineDollar></AiOutlineDollar> Salary: {salary}</p>
             </div>
+            <Link to={`/job/${id}`}>
             <button className="px-4 py-2 rounded text-xl text-white font-medium bg-[#7E90FE]">Vews Details</button>
+            </Link>
         </div>
     );
 };
